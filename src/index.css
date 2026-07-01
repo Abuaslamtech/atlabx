@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Global resets ──────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #ffffff;
+  color: #0D1B33;
+  overflow-x: hidden;
+}
+
+/* ── Custom scrollbar ───────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F7F8FB;
+}
+::-webkit-scrollbar-thumb {
+  background: #B0BCD6;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1F4285;
+}
+
+/* ── Selection colour ───────────────────────────────────── */
+::selection {
+  background-color: #1F4285;
+  color: #ffffff;
+}
+
+/* ── Focus ring ─────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid #1F4285;
+  outline-offset: 3px;
+}
+
+/* ── Utility: section padding ───────────────────────────── */
+@layer components {
+  .section-pad {
+    @apply py-20 md:py-28;
+  }
+
+  .container-xl {
+    @apply max-w-7xl mx-auto px-5 sm:px-8 lg:px-12;
+  }
+}
