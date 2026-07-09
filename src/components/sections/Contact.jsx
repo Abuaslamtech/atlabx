@@ -16,13 +16,13 @@ const contactDetails = [
   {
     icon: Phone,
     label: 'Phone',
-    value: '+234 000 000 0000',
-    href: 'tel:+2340000000000',
+    value: '07035974746',
+    href: 'tel:07035974746',
   },
   {
     icon: MapPin,
     label: 'Location',
-    value: 'Zaria, Kaduna State, Nigeria',
+    value: '12 Tsallaken Dogo, Galma, Zaria 810282, Kaduna, Nigeria',
     href: null,
   },
 ]

@@ -97,19 +97,24 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="tel:+2340000000000" className="hover:text-white transition-colors">
-                  +234 000 000 0000
+                <a href="tel:07035974746" className="hover:text-white transition-colors">
+                  07035974746
                 </a>
               </li>
-              <li>Zaria, Kaduna State, Nigeria</li>
+              <li>12 Tsallaken Dogo, Galma, Zaria 810282, Kaduna, Nigeria</li>
             </ul>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/40">
-          <span>&copy; {new Date().getFullYear()} AtlabX (Abuaslam Tech Lab). All rights reserved.</span>
-          <span>Registered with the Corporate Affairs Commission of Nigeria</span>
+        <div className="mt-12 pt-6 border-t border-white/10 flex flex-col gap-4 text-xs text-white/40">
+          <p className="text-center md:text-left leading-relaxed">
+            <strong className="text-white/60">AtlabX</strong> is a registered brand name and operating entity of <strong className="text-white/60">ABUASLAM TECH LAB</strong>, a business duly registered with the Corporate Affairs Commission (CAC) of Nigeria. All products, services, and operations under the AtlabX brand are legally provided by ABUASLAM TECH LAB.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-white/5 pt-4">
+            <span>&copy; {new Date().getFullYear()} ABUASLAM TECH LAB. All rights reserved.</span>
+            <span>Registered with the CAC</span>
+          </div>
         </div>
       </div>
     </footer>

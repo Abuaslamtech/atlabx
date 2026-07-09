@@ -74,10 +74,10 @@ const About = () => {
             />
             <div className="mt-6 space-y-4 text-brand-mid leading-relaxed">
               <p>
-                AtlabX — Abuaslam Tech Lab — is a software development and fintech studio
-                based in Zaria, Kaduna State, Nigeria. We build production-grade software
-                for clients across finance, logistics, and consumer tech, while also shipping
-                our own independent products.
+                <strong>AtlabX</strong> is the official brand name and operating entity of <strong>Abuaslam Tech Lab</strong>, 
+                a software development and fintech studio based in Zaria, Kaduna State, Nigeria. 
+                We build production-grade software for clients across finance, logistics, and consumer tech, 
+                while also shipping our own independent products.
               </p>
               <p>
                 Our work is grounded in engineering discipline: clear architecture, clean
