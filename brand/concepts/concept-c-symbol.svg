@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="title-c">
+  <title id="title-c">AtlabX Concept C — The Lab Prism</title>
+  <!-- Modular Tech Node: Isometric hexagonal prism embodying Lab modularity and A+X geometry -->
+  <g fill="#0D1B3E">
+    <!-- Top Face / Apex Cap (Forms apex of A) -->
+    <polygon points="128,28 214.6,78 178.6,98.8 128,69.6 77.4,98.8 41.4,78"/>
+    <!-- Left Ascending Pylon (Left leg of A & bottom-left rail of X) -->
+    <polygon points="41.4,92 77.4,112.8 77.4,178 41.4,157.2"/>
+    <!-- Right Descending Pylon (Right leg of A & bottom-right rail of X) -->
+    <polygon points="214.6,92 214.6,157.2 178.6,178 178.6,112.8"/>
+    <!-- Central Isometric Diamond Node -->
+    <polygon points="128,86 162.6,106 162.6,146 128,166 93.4,146 93.4,106"/>
+    <!-- Bottom Arch & Foundation Keystone -->
+    <polygon points="128,180 162.6,160 162.6,200 128,220 93.4,200 93.4,160"/>
+  </g>
+</svg>

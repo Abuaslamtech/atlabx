@@ -16,8 +16,10 @@ html {
 body {
   margin: 0;
   font-family: 'Inter', system-ui, sans-serif;
-  background-color: #ffffff;
-  color: #0D1B33;
+  background-color: #080C14;
+  color: #E2E8F0;
+  font-size: 16px;
+  line-height: 1.6;
   overflow-x: hidden;
 }
 
@@ -56,5 +58,15 @@ body {
 
   .container-xl {
     @apply max-w-7xl mx-auto px-5 sm:px-8 lg:px-12;
+  }
+}
+
+/* ── Reduced motion compliance ──────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

@@ -2,12 +2,12 @@ export const products = [
   {
     id: 'eivia',
     name: 'Eivia',
-    tagline: 'Bills Payment & VTU Platform',
+    tagline: 'Digital Services & Utility Platform',
     description:
-      'Eivia simplifies bill payments and value-added services — airtime, data, electricity, TV subscriptions, and more — through a fast, reliable, and developer-friendly platform built for Nigerian consumers and businesses.',
-    tags: ['Fintech', 'VTU', 'Payments', 'Consumer'],
+      'A high-availability digital services gateway engineered by AtlabX. Features sub-second request fulfillment, automated switch failover, and multi-tier account management serving thousands of daily consumer transactions.',
+    tags: ['Consumer Platform', 'High Uptime', 'Digital Payments', 'In-House Venture'],
     accentColor: '#1F4285',
-    status: 'Live',
+    status: 'Live Platform',
     url: '#',
   },
 ]

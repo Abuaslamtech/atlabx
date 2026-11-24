@@ -1,112 +1,74 @@
 import React from 'react'
-import { motion, useAnimation, useInView } from 'framer-motion'
-import { useRef, useEffect } from 'react'
-import SectionTag from '../ui/SectionTag'
-import SectionHeading from '../ui/SectionHeading'
 
-const stats = [
-  { value: '2022',    label: 'Year Founded' },
-  { value: '20+',     label: 'Projects Delivered' },
-  { value: '3+',      label: 'Countries Reached' },
-  { value: '100%',    label: 'Client Retention' },
+const tenets = [
+  {
+    number: '01',
+    title: 'Architectural Rigor',
+    description:
+      'Clean, modular codebases designed for high uptime, deterministic data integrity, and effortless long-term maintainability.',
+  },
+  {
+    number: '02',
+    title: 'Senior-Only Execution',
+    description:
+      'You work directly with lead systems architects and principal product designers — zero account management layers or junior handoffs.',
+  },
+  {
+    number: '03',
+    title: 'Product Craft',
+    description:
+      'Engineering grounded in user workflows, business conversion, and measurable impact, not just superficial lines of code.',
+  },
 ]
 
-const StatCard = ({ value, label, index }) => {
-  const ref = useRef(null)
-  const controls = useAnimation()
-  const isInView = useInView(ref, { once: true, amount: 0.3 })
-
-  useEffect(() => {
-    if (isInView) controls.start('visible')
-  }, [isInView, controls])
-
+export const About = () => {
   return (
-    <motion.div
-      ref={ref}
-      initial="hidden"
-      animate={controls}
-      variants={{
-        hidden: { opacity: 0, scale: 0.92 },
-        visible: {
-          opacity: 1,
-          scale: 1,
-          transition: { duration: 0.5, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] },
-        },
-      }}
-      className="relative bg-brand-surface rounded-2xl p-6 border border-brand-accent-light/40 hover:border-brand-navy/30 hover:shadow-md transition-all duration-300 group"
-    >
-      <div
-        className="absolute top-0 left-0 w-1 h-10 bg-brand-navy rounded-tl-2xl rounded-bl-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-      />
-      <p className="text-3xl font-bold text-brand-navy-deeper tracking-tight">{value}</p>
-      <p className="mt-1 text-sm text-brand-mid font-medium">{label}</p>
-    </motion.div>
-  )
-}
-
-const About = () => {
-  const ref = useRef(null)
-  const controls = useAnimation()
-  const isInView = useInView(ref, { once: true, amount: 0.2 })
-
-  useEffect(() => {
-    if (isInView) controls.start('visible')
-  }, [isInView, controls])
-
-  return (
-    <section id="about" className="bg-white section-pad">
+    <section id="about" className="py-24 md:py-32 bg-[#0B101D] border-t border-white/[0.08]">
       <div className="container-xl">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left: Copy */}
-          <motion.div
-            ref={ref}
-            initial="hidden"
-            animate={controls}
-            variants={{
-              hidden: { opacity: 0, y: 28 },
-              visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
-            }}
-          >
-            <SectionHeading
-              tag={<SectionTag>About Us</SectionTag>}
-              title="A Serious Studio. Not a Generic Agency."
-              subtitle={null}
-            />
-            <div className="mt-6 space-y-4 text-brand-mid leading-relaxed">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          
+          {/* Left Column: Narrative */}
+          <div className="lg:col-span-6">
+            <span className="font-mono text-xs font-semibold tracking-widest uppercase text-brand-accent-light block mb-4">
+              [ 01 / Studio Philosophy ]
+            </span>
+
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight">
+              Senior architects. Direct execution. Zero agency bloat.
+            </h2>
+
+            <div className="mt-6 space-y-4 text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
               <p>
-                <strong>AtlabX</strong> is the official brand name and operating entity of <strong>Abuaslam Tech Lab</strong>, 
-                a software development and fintech studio based in Zaria, Kaduna State, Nigeria. 
-                We build production-grade software for clients across finance, logistics, and consumer tech, 
-                while also shipping our own independent products.
+                AtlabX is an independent software engineering studio and product lab. 
+                We partner with founders and technical leaders to build production-grade web applications, 
+                mobile platforms, and scalable backend infrastructure.
               </p>
               <p>
-                Our work is grounded in engineering discipline: clear architecture, clean
-                code, and systems built to last. We operate as a focused team, not a bloated
-                agency — which means every project gets senior-level attention from start to
-                finish.
-              </p>
-              <p>
-                From fintech payment infrastructure to mobile applications and AI-assisted
-                workflows, we work where technology meaningfully changes how businesses
-                operate across Africa.
+                We operate as a focused engineering team, not an inflated agency. 
+                That means every engagement gets direct technical leadership, clear communication, 
+                and clean, modular code built to last.
               </p>
             </div>
+          </div>
 
-            {/* Accent divider */}
-            <div className="mt-8 flex items-center gap-3">
-              <div className="h-px w-12 bg-brand-navy" />
-              <span className="text-xs font-semibold text-brand-navy tracking-widest uppercase">
-                Zaria, Kaduna State · Nigeria
-              </span>
-            </div>
-          </motion.div>
-
-          {/* Right: Stats grid */}
-          <div className="grid grid-cols-2 gap-4">
-            {stats.map((stat, i) => (
-              <StatCard key={stat.label} {...stat} index={i} />
+          {/* Right Column: Engineering Standards (Quiet, Editorial List) */}
+          <div className="lg:col-span-6 space-y-6 pt-2">
+            {tenets.map(tenet => (
+              <div
+                key={tenet.number}
+                className="pb-6 border-b border-white/10 last:border-b-0"
+              >
+                <div className="flex items-baseline gap-4 mb-2">
+                  <span className="font-mono text-xs text-brand-electric font-semibold">{tenet.number}</span>
+                  <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">{tenet.title}</h3>
+                </div>
+                <p className="text-sm sm:text-base text-slate-300 leading-relaxed pl-8 font-normal">
+                  {tenet.description}
+                </p>
+              </div>
             ))}
           </div>
+
         </div>
       </div>
     </section>

@@ -1,0 +1,34 @@
+{
+  "brand": "AtlabX",
+  "tagline": "Software & Fintech Infrastructure Studio",
+  "brief": "Abuaslam Tech Lab (operating as AtlabX) is a software development and fintech studio based in Zaria, Nigeria, building production-grade software and payment infrastructure for Africa. Grounded in engineering discipline: clear architecture, clean code, and systems built to last.",
+  "adjectives": ["architectural", "disciplined", "authoritative", "modular", "infrastructure"],
+  "industry": "finance",
+  "mockups": ["payment-card", "terminal", "readme", "app-icon", "website", "social"],
+  "nav": ["About", "Services", "Products", "Process", "Contact"],
+  "brand_color": "#0D1B3E",
+  "tile_color": "#0D1B3E",
+  "greyscale": false,
+  "final": true,
+  "round": 1,
+  "concepts": [
+    {
+      "name": "The Lab Prism",
+      "symbol": "dist/atlabx-symbol.svg",
+      "lockup": "dist/atlabx-logo-horizontal.svg",
+      "stacked": "dist/atlabx-logo-stacked.svg",
+      "avatar": "dist/atlabx-symbol-app-icon.svg",
+      "symbol_on_tile": "dist/atlabx-symbol-white.svg",
+      "lockup_on_tile": "dist/atlabx-logo-horizontal-dark.svg",
+      "symbol_on_dark": "dist/atlabx-symbol-white.svg",
+      "lockup_on_dark": "dist/atlabx-logo-horizontal-dark.svg",
+      "idea": "An isometric hexagonal tech node embodying modular software architecture and dual A+X perspective.",
+      "rationale": [
+        "Represents the 'Tech Lab' — modular software blocks, scalable APIs, and multi-dimensional system architecture.",
+        "The hexagonal footprint departs sharply from common square and circular fintech badges, giving AtlabX an ownable visual container.",
+        "Reads as an architectural portal (A) in elevation and an isometric multiplier (X) in perspective, reflecting bedrock African software infrastructure."
+      ]
+    }
+  ],
+  "recommendation": "The Lab Prism establishes AtlabX as an engineering-driven software and fintech studio, setting it apart from generic agencies through rigorous isometric geometry and modular system symbolism."
+}

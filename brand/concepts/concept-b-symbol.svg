@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="title-b">
+  <title id="title-b">AtlabX Concept B — Delta Rails</title>
+  <!-- Precision Letterform: Monolithic Delta A with 45° crossing fintech rails carving an X -->
+  <g fill="#0D1B3E">
+    <!-- Top Apex Chevron (Head of A) -->
+    <polygon points="128,24 184,80 152,80 128,56 104,80 72,80"/>
+    <!-- Left Structural Pylon -->
+    <polygon points="64,92 96,92 42,226 10,226"/>
+    <!-- Right Structural Pylon -->
+    <polygon points="192,92 246,226 214,226 160,92"/>
+    <!-- Central Kinetic Core (Precision Lozenge) -->
+    <polygon points="128,96 156,138 128,180 100,138"/>
+    <!-- Foundation Anchor Base -->
+    <polygon points="84,198 172,198 156,226 100,226"/>
+  </g>
+</svg>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <title>AtlabX</title>
+  <style>
+    :root { color: #0D1B3E; }
+    @media (prefers-color-scheme: dark) { :root { color: #FFFFFF; } }
+  </style>
+  <g transform="translate(-34.18 -25.31) scale(1.267)" fill="currentColor">
+    <!-- Top Face / Apex Roof -->
+    <polygon points="128,24 216,75 176,98 128,70 80,98 40,75"/>
+    <!-- Left Ascending Pylon -->
+    <polygon points="38,92 74,113 74,176 38,155"/>
+    <!-- Right Descending Pylon -->
+    <polygon points="218,92 218,155 182,176 182,113"/>
+    <!-- Central Core -->
+    <polygon points="128,86 160,105 160,145 128,164 96,145 96,105"/>
+    <!-- Bottom Keystone -->
+    <polygon points="128,180 160,161 160,199 128,218 96,199 96,161"/>
+  </g>
+</svg>

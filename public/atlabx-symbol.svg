@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="title-sym">
+  <title id="title-sym">AtlabX — The Lab Prism Symbol</title>
+  <g>
+    <!-- Top Face / Apex Roof (Deep Navy) -->
+    <polygon fill="#0D1B3E" points="128,28 214.6,78 178.6,98.8 128,69.6 77.4,98.8 41.4,78"/>
+    <!-- Left Ascending Pylon (Brand Navy) -->
+    <polygon fill="#1F4285" points="41.4,92 77.4,112.8 77.4,178 41.4,157.2"/>
+    <!-- Right Descending Pylon (Brand Navy) -->
+    <polygon fill="#1F4285" points="214.6,92 214.6,157.2 178.6,178 178.6,112.8"/>
+    <!-- Central Isometric Diamond Core (Deep Navy) -->
+    <polygon fill="#0D1B3E" points="128,86 162.6,106 162.6,146 128,166 93.4,146 93.4,106"/>
+    <!-- Bottom Arch & Foundation Keystone (Brand Navy) -->
+    <polygon fill="#1F4285" points="128,180 162.6,160 162.6,200 128,220 93.4,200 93.4,160"/>
+  </g>
+</svg>

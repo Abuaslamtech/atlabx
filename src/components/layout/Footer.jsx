@@ -2,51 +2,53 @@ import React from 'react'
 import { Twitter, Linkedin, Github, Mail } from 'lucide-react'
 
 const quickLinks = [
-  { label: 'About',    href: '#about' },
-  { label: 'Services', href: '#services' },
-  { label: 'Products', href: '#products' },
-  { label: 'Process',  href: '#process' },
-  { label: 'Contact',  href: '#contact' },
+  { label: 'Philosophy',   href: '#about' },
+  { label: 'Capabilities', href: '#services' },
+  { label: 'Selected Work', href: '#case-studies' },
+  { label: 'Methodology',  href: '#process' },
+  { label: 'Leadership',   href: '#leadership' },
+  { label: 'Contact',      href: '#contact' },
 ]
 
 const socialLinks = [
   { icon: Twitter,  href: '#', label: 'Twitter / X' },
-  { icon: Linkedin, href: '#', label: 'LinkedIn' },
-  { icon: Github,   href: '#', label: 'GitHub' },
-  { icon: Mail,     href: 'mailto:hello.atlabx@gmail.com', label: 'Email' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/', label: 'LinkedIn' },
+  { icon: Github,   href: 'https://github.com/abuaslam', label: 'GitHub' },
+  { icon: Mail,     href: 'mailto:hello@atlabx.com', label: 'Email' },
 ]
 
 const FooterLogo = () => (
-  <div className="flex items-center gap-2.5">
-    <img src="/atlabx-logo.png" alt="AtlabX icon" className="h-8 w-auto opacity-90" />
-    <span className="text-xl font-extrabold tracking-tight text-white select-none">
-      atlab<span className="text-brand-accent">X</span>
-    </span>
-  </div>
+  <a href="#" className="inline-block py-1 group" aria-label="AtlabX home">
+    <img
+      src="/atlabx-logo-horizontal-dark.svg"
+      alt="AtlabX — Software Engineering Studio & Product Lab"
+      className="h-7 w-auto transition-opacity duration-200 group-hover:opacity-85"
+    />
+  </a>
 )
 
-const Footer = () => {
+export const Footer = () => {
   const handleNavClick = (e, href) => {
     e.preventDefault()
     const target = document.querySelector(href)
     if (target) {
-      const top = target.getBoundingClientRect().top + window.scrollY - 72
+      const offset = 72
+      const top = target.getBoundingClientRect().top + window.scrollY - offset
       window.scrollTo({ top, behavior: 'smooth' })
     }
   }
 
   return (
-    <footer className="bg-brand-navy-deeper border-t border-white/10">
-      <div className="container-xl py-14">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
-          {/* Brand column */}
-          <div className="md:col-span-1">
+    <footer className="bg-[#060910] border-t border-white/10 py-16">
+      <div className="container-xl">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 mb-12">
+          {/* Brand */}
+          <div className="md:col-span-5">
             <FooterLogo />
-            <p className="mt-4 text-sm text-brand-accent leading-relaxed max-w-xs">
-              Software and fintech studio building products and infrastructure for Africa.
-              Based in Zaria, Nigeria.
+            <p className="mt-4 text-sm text-slate-300 leading-relaxed max-w-sm font-normal">
+              Independent software engineering studio and product lab. We build high-performance web applications, mobile platforms, and scalable backend infrastructure.
             </p>
-            <div className="mt-6 flex items-center gap-3">
+            <div className="mt-6 flex items-center gap-2.5">
               {socialLinks.map(({ icon: Icon, href, label }) => (
                 <a
                   key={label}
@@ -54,7 +56,7 @@ const Footer = () => {
                   aria-label={label}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-white/50 hover:bg-white/10 transition-all duration-200"
+                  className="w-9 h-9 rounded-xl border border-white/10 bg-white/[0.03] flex items-center justify-center text-slate-300 hover:text-white hover:border-white/30 transition-all"
                 >
                   <Icon size={15} />
                 </a>
@@ -62,18 +64,18 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Quick links */}
-          <div>
-            <h3 className="text-xs font-semibold uppercase tracking-widest text-brand-accent mb-5">
-              Quick Links
-            </h3>
-            <ul className="space-y-3">
+          {/* Sitemap */}
+          <div className="md:col-span-3">
+            <h4 className="font-mono text-xs uppercase tracking-wider text-slate-400 mb-4 font-semibold">
+              Navigation
+            </h4>
+            <ul className="space-y-2.5 text-sm text-slate-300">
               {quickLinks.map(link => (
                 <li key={link.label}>
                   <a
                     href={link.href}
                     onClick={e => handleNavClick(e, link.href)}
-                    className="text-sm text-white/60 hover:text-white transition-colors duration-150"
+                    className="hover:text-white transition-colors"
                   >
                     {link.label}
                   </a>
@@ -82,39 +84,31 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact info */}
-          <div>
-            <h3 className="text-xs font-semibold uppercase tracking-widest text-brand-accent mb-5">
-              Contact
-            </h3>
-            <ul className="space-y-3 text-sm text-white/60">
+          {/* Contact */}
+          <div className="md:col-span-4">
+            <h4 className="font-mono text-xs uppercase tracking-wider text-slate-400 mb-4 font-semibold">
+              Direct Contact
+            </h4>
+            <ul className="space-y-2.5 text-sm text-slate-300">
               <li>
-                <a
-                  href="mailto:hello.atlabx@gmail.com"
-                  className="hover:text-white transition-colors"
-                >
-                  hello.atlabx@gmail.com
+                <a href="mailto:hello@atlabx.com" className="text-white hover:text-slate-300 transition-colors">
+                  hello@atlabx.com
                 </a>
               </li>
               <li>
-                <a href="tel:07035974746" className="hover:text-white transition-colors">
-                  07035974746
+                <a href="https://wa.me/2347035974746" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                  +234 703 597 4746 (WhatsApp)
                 </a>
               </li>
-              <li>12 Tsallaken Dogo, Galma, Zaria 810282, Kaduna, Nigeria</li>
+              <li className="text-slate-400">Zaria, Nigeria · Global Remote Delivery</li>
             </ul>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 pt-6 border-t border-white/10 flex flex-col gap-4 text-xs text-white/40">
-          <p className="text-center md:text-left leading-relaxed">
-            <strong className="text-white/60">AtlabX</strong> is a registered brand name and operating entity of <strong className="text-white/60">ABUASLAM TECH LAB</strong>, a business duly registered with the Corporate Affairs Commission (CAC) of Nigeria. All products, services, and operations under the AtlabX brand are legally provided by ABUASLAM TECH LAB.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-white/5 pt-4">
-            <span>&copy; {new Date().getFullYear()} ABUASLAM TECH LAB. All rights reserved.</span>
-            <span>Registered with the CAC</span>
-          </div>
+        <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400">
+          <span>&copy; {new Date().getFullYear()} Abuaslam Tech Lab (operating as AtlabX). All rights reserved.</span>
+          <span className="font-mono text-[11px] text-slate-400">Software Studio & Product Lab</span>
         </div>
       </div>
     </footer>

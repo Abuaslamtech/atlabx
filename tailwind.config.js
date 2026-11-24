@@ -14,12 +14,16 @@ export default {
           accent:  '#B0BCD6',
           'accent-light': '#D6DCE9',
           surface: '#F7F8FB',
-          'mid':   '#4B5A74',
-          'light': '#8A96AD',
+          mid:   '#4B5A74',
+          light: '#8A96AD',
+          electric: '#2A5BD7',
+          'electric-hover': '#1F4ECC',
+          cobalt: '#1D4ED8',
         },
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
       },
       animation: {
         'fade-in-up': 'fadeInUp 0.6s ease-out both',

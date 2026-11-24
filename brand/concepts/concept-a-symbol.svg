@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="title-a">
+  <title id="title-a">AtlabX Concept A — Nexus Monolith</title>
+  <!-- Architectural A+X Monogram: Monolithic Delta Frame with Interlocking Kinetic Rails -->
+  <g fill="#0D1B3E">
+    <!-- Top Apex Chevron (Crown of A) -->
+    <polygon points="128,24 186,96 150,96 128,68 106,96 70,96"/>
+    <!-- Left Pylon Outer Leg (Anchoring A) -->
+    <polygon points="66,112 36,224 68,224 94,146"/>
+    <!-- Right Pylon Outer Leg (Anchoring A) -->
+    <polygon points="190,112 162,146 188,224 220,224"/>
+    <!-- Foreground Crossing Rail (Backslash of X: Top-Left to Bottom-Right) -->
+    <polygon points="76,112 108,112 196,224 164,224"/>
+    <!-- Background Crossing Rail (Forward Slash of X: Top-Right to Bottom-Left with 14px clearance) -->
+    <polygon points="180,112 148,112 134,130 148,148 176,112"/>
+    <polygon points="122,162 108,180 74,224 106,224 136,182"/>
+  </g>
+</svg>

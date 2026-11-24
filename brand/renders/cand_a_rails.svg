@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-labelledby="t-a">
+  <title id="t-a">Concept A: Nexus Monolith</title>
+  <g fill="#0D1B3E">
+    <!-- Apex Chevron (Top of A) -->
+    <polygon points="128,24 184,98 148,98 128,70 108,98 72,98"/>
+    <!-- Rail 1 (Top-Left to Bottom-Right): continuous foreground beam -->
+    <polygon points="76,108 108,108 196,228 164,228"/>
+    <!-- Rail 2 (Top-Right to Bottom-Left): background beam with 12px clearance gap -->
+    <polygon points="180,108 148,108 134,128 148,146 172,114"/>
+    <polygon points="122,160 108,178 72,228 104,228 136,180"/>
+    <!-- Foundation Base Stabilizers (Completing outer legs of A) -->
+    <polygon points="68,118 40,228 68,228 92,152"/>
+    <polygon points="188,118 216,228 188,228 164,152"/>
+  </g>
+</svg>

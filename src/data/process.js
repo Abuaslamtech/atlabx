@@ -1,32 +1,32 @@
-import { Search, Hammer, Rocket, Headphones } from 'lucide-react'
+import { Compass, Layers, ShieldCheck, Activity } from 'lucide-react'
 
 export const processSteps = [
   {
     id: 1,
-    icon: Search,
-    title: 'Discovery',
+    icon: Compass,
+    title: 'Discovery & Architecture',
     description:
-      'We listen first. Deep requirements gathering, technical scoping, and clear success criteria before a line of code is written.',
+      'Thorough technical scoping, data flow modeling, schema design, and milestone definition before a line of production code is written.',
   },
   {
     id: 2,
-    icon: Hammer,
-    title: 'Build',
+    icon: Layers,
+    title: 'Iterative Sprint Build',
     description:
-      'Iterative development with weekly milestones. Transparent progress, clean architecture, and rigorous quality checks.',
+      'Agile sprints with weekly milestone reviews. Clean modular code, automated test coverage, and transparent progress updates.',
   },
   {
     id: 3,
-    icon: Rocket,
-    title: 'Deploy',
+    icon: ShieldCheck,
+    title: 'Hardened Deployment',
     description:
-      'Smooth, staged rollouts with CI/CD pipelines, monitoring, and zero-downtime deployments to production.',
+      'Zero-downtime production cutovers with automated CI/CD pipelines, containerized environments, and live telemetry monitoring.',
   },
   {
     id: 4,
-    icon: Headphones,
-    title: 'Support',
+    icon: Activity,
+    title: 'Observability & SLA Support',
     description:
-      'We don\'t disappear post-launch. Ongoing maintenance, performance monitoring, and rapid incident response.',
+      'Dedicated maintenance, real-time performance telemetry, rapid incident escalation, and continuous system evolution.',
   },
 ]

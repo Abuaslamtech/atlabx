@@ -1,32 +1,36 @@
-import { Code2, Landmark, Smartphone, Bot } from 'lucide-react'
+import { Layout, Smartphone, Server, Sparkles } from 'lucide-react'
 
 export const services = [
   {
-    id: 'software-dev',
-    icon: Code2,
-    title: 'Software Development',
+    id: 'web-platforms',
+    icon: Layout,
+    tag: 'Full-Stack Platforms',
+    title: 'Custom Web Applications & SaaS',
     description:
-      'End-to-end custom software — from robust backends to polished frontends. We architect systems that scale with your business.',
+      'Scalable web platforms, client portals, and administrative software engineered with responsive architecture, fluid user interfaces, and robust APIs.',
   },
   {
-    id: 'fintech-infra',
-    icon: Landmark,
-    title: 'Fintech & Payment Systems',
-    description:
-      'Compliant payment integrations, virtual accounts, wallets, and fintech infrastructure built for the African market.',
-  },
-  {
-    id: 'mobile-apps',
+    id: 'mobile-engineering',
     icon: Smartphone,
-    title: 'Mobile App Development',
+    tag: 'iOS & Android',
+    title: 'Mobile Engineering',
     description:
-      'Native and cross-platform applications for Android and iOS, engineered for performance and intuitive user experience.',
+      'Native and cross-platform applications built for optimal performance, intuitive gesture navigation, offline-first reliability, and sub-second cold starts.',
+  },
+  {
+    id: 'cloud-backend',
+    icon: Server,
+    tag: 'Distributed Backends',
+    title: 'Cloud Architecture & Scalable APIs',
+    description:
+      'Resilient backend services, microservices, and database modeling engineered for high concurrency, fault isolation, and enterprise security standards.',
   },
   {
     id: 'ai-automation',
-    icon: Bot,
-    title: 'AI-Powered Tools & Automation',
+    icon: Sparkles,
+    tag: 'Intelligent Systems',
+    title: 'AI & Workflow Automation',
     description:
-      'Custom AI integrations, workflow automation, and data intelligence solutions that reduce operational overhead.',
+      'Tailored AI integrations, document parsing engines, automated business pipelines, and data systems that eliminate manual operational bottlenecks.',
   },
 ]
