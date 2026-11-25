@@ -1,187 +1,254 @@
-import React from 'react'
-import { ArrowUpRight, CheckCircle2 } from 'lucide-react'
+import React, { useState } from 'react'
+import { ArrowUpRight, ArrowRight, FileText, Calendar } from 'lucide-react'
+import CaseStudyModal from '../ui/CaseStudyModal'
+import ArchitecturePlaybookModal from '../ui/ArchitecturePlaybookModal'
 
 const caseStudies = [
   {
-    id: 'eivia',
-    tag: 'Flagship In-House Product',
-    title: 'Eivia — Instant Utility & Digital Services Platform',
-    client: 'Proprietary Lab Venture',
-    description:
-      'A high-reliability digital platform engineered to process instant service settlements, bill payments, and automated dispatch across high-volume daily transactions.',
-    challenge:
-      'Third-party regional switch timeouts and unpredictable network failures causing dropped consumer transactions and reconciliation balance mismatches.',
-    architecture:
-      'Built an asynchronous multi-provider failover switch with local idempotency caching, double-entry ledger verification, and automated webhook retries.',
-    outcome:
-      'Achieved 99.98% fulfillment reliability, reduced median latency to < 650ms, and eliminated reconciliation balance drift across thousands of daily operations.',
-    stack: ['React Native', 'Node.js', 'PostgreSQL', 'Redis', 'Tailwind CSS'],
-    link: 'https://eivia.atlabx.com',
+    id: 'scath',
+    client: 'Scath Financial Inc.',
+    badge: '01 // CLIENT PLATFORM',
+    eyebrow: 'FINTECH · MOBILE & PAYMENT SWITCH RAILS',
+    title: 'Scath — Digital Banking & Mobile Wallet Platform',
+    hook: 'High-concurrency mobile wallet and multi-rail payment switch engineered to eliminate settlement latency and double-debit reconciliation disputes.',
     metrics: [
-      { label: 'Switch Fulfillment Rate', value: '99.98%' },
-      { label: 'Median Latency', value: '< 650ms' },
-      { label: 'Reconciliation Drift', value: '0.00%' },
+      { value: '0.42s', label: 'P99 Settlement' },
+      { value: '99.98%', label: 'Switch Uptime' },
+      { value: '-38%', label: 'Drop-Off Rate' },
     ],
+    image: '/case-studies/scath.jpg',
+    canvasBg: 'bg-[#EEF2FF]',
+    borderColor: 'border-[#D9E2FF]',
+    stack: ['React Native', 'Expo', 'Go & Node.js', 'Redis', 'PostgreSQL'],
   },
   {
-    id: 'scath',
-    tag: 'Client Platform Architecture',
-    title: 'Scath — High-Concurrency Commerce Engine',
-    client: 'Scath',
-    description:
-      'A custom headless e-commerce platform architected for rapid inventory synchronization, instant product filtering, and high-volume promotional drop spikes.',
-    challenge:
-      'Legacy monolithic storefront suffered from slow catalog indexing, inventory sync lags during peak product drops, and high mobile cart abandonment.',
-    architecture:
-      'Architected an API-first headless commerce system with edge caching, automated multi-channel inventory sync, and optimized relational database queries.',
-    outcome:
-      'Delivered sub-second page loads globally, zero downtime during high-traffic sales drops, and reduced mobile cart abandonment by 38%.',
-    stack: ['React', 'Next.js', 'TypeScript', 'Node.js', 'PostgreSQL'],
-    link: '#',
+    id: 'deftaro',
+    client: 'Proprietary Lab Venture (AtlabX)',
+    badge: '02 // IN-HOUSE LAB VENTURE',
+    eyebrow: 'RETAIL SYSTEMS · LOCAL-FIRST & OFFLINE POS',
+    title: 'Deftaro — Retail Operations, Inventory & Offline POS Engine',
+    hook: 'Offline-first retail operating system and checkout engine with embedded SQLite persistence for uninterrupted merchant sales during power and network outages.',
     metrics: [
-      { label: 'Global Page Load', value: '0.42s' },
-      { label: 'Mobile Drop-Off', value: '-38%' },
-      { label: 'Peak Sales Uptime', value: '100%' },
+      { value: '< 450ms', label: 'Barcode Scan' },
+      { value: '100%', label: 'Offline Durability' },
+      { value: '0.00%', label: 'Stock Drift' },
     ],
+    image: '/case-studies/deftaro.png',
+    canvasBg: 'bg-[#F4F4F5]',
+    borderColor: 'border-[#E4E4E7]',
+    stack: ['React Native', 'Expo', 'SQLite', 'Node.js', 'PostgreSQL'],
   },
   {
     id: 'eimaan-maison',
-    tag: 'Client Brand Flagship',
-    title: 'Eimaan Maison — Luxury Digital Commerce & Storefront',
-    client: 'Eimaan Maison',
-    description:
-      'A bespoke digital flagship store engineered with fluid 60fps micro-interactions, responsive high-resolution asset delivery, and unified payment routing.',
-    challenge:
-      'High-end fashion house needed an editorial digital atelier that matched their physical craft without standard template compromises.',
-    architecture:
-      'Engineered a custom headless storefront with responsive media optimization, fluid gesture animations, and multi-currency checkout.',
-    outcome:
-      'Drove a 3.4x lift in mobile checkout conversion, sub-second checkout initiation, and seamless multi-currency cart transactions.',
-    stack: ['React', 'Tailwind CSS', 'Framer Motion', 'Stripe'],
-    link: '#',
+    client: 'Eimaan Maison Atelier',
+    badge: '03 // CLIENT FLAGSHIP',
+    eyebrow: 'LUXURY COMMERCE · HEADLESS STOREFRONT',
+    title: 'Eimaan Maison — Luxury Skincare & Fragrance Storefront',
+    hook: 'Headless luxury storefront engineered with 60fps micro-interactions, edge CDN caching, and sub-second multi-currency checkout.',
     metrics: [
-      { label: 'Mobile Checkout Lift', value: '+340%' },
-      { label: 'Animation Frame Budget', value: '60 FPS' },
-      { label: 'Checkout Initiation', value: '< 1s' },
+      { value: '+340%', label: 'Mobile Conversion' },
+      { value: '60 FPS', label: 'Micro-Interactions' },
+      { value: '< 1.0s', label: 'Cart Init' },
     ],
+    image: '/case-studies/eimaan-maison.jpg',
+    canvasBg: 'bg-[#FAF5EF]',
+    borderColor: 'border-[#EFE7DC]',
+    stack: ['Next.js', 'React', 'Tailwind CSS', 'Framer Motion', 'Stripe'],
   },
 ]
 
 export const CaseStudies = () => {
+  const [selectedStudy, setSelectedStudy] = useState(null)
+  const [showPlaybook, setShowPlaybook] = useState(false)
+
+  const handleScroll = (href) => {
+    const target = document.querySelector(href)
+    if (target) {
+      const offset = 76
+      const top = target.getBoundingClientRect().top + window.scrollY - offset
+      window.scrollTo({ top, behavior: 'smooth' })
+    }
+  }
+
   return (
-    <section id="case-studies" className="py-24 md:py-32 bg-[#080C14] border-t border-white/[0.08]">
+    <section id="case-studies" className="py-20 md:py-28 bg-[#FAFAFA] border-t border-neutral-200">
       <div className="container-xl">
-        {/* Header */}
-        <div className="max-w-3xl mb-16">
-          <span className="font-mono text-xs font-semibold tracking-widest uppercase text-brand-accent-light block mb-4">
-            [ 03 / Selected Work & Case Studies ]
+        
+        {/* Section Header */}
+        <div className="max-w-3xl mb-14 sm:mb-20">
+          <span className="font-mono text-xs font-semibold tracking-widest uppercase text-neutral-500 block mb-4">
+            [ 01 / Selected Work & Proof of Execution ]
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-[#0A0A0A] tracking-[-0.03em] leading-tight">
             Proof of execution. Real systems shipped.
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
-            A selection of platforms engineered by AtlabX across proprietary ventures and client engagements.
+          <p className="mt-4 text-base sm:text-lg text-[#525252] leading-relaxed font-normal">
+            We don't rely on generic mockups or unbacked claims. Every project represents production-grade architecture deployed to commercial environments.
           </p>
         </div>
 
-        {/* Case Studies List */}
-        <div className="space-y-10">
-          {caseStudies.map((study, idx) => (
-            <div
-              key={study.id}
-              className={`rounded-2xl border p-8 sm:p-12 transition-all duration-200 ${
-                idx === 0
-                  ? 'bg-[#0D1526] border-white/20 shadow-2xl relative'
-                  : 'bg-[#0B101D] border-white/10 hover:border-white/20'
-              }`}
-            >
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+        {/* 2-Column Alternating Case Study Showcases */}
+        <div className="space-y-20 sm:space-y-28">
+          {caseStudies.map((study, index) => {
+            const isEven = index % 2 === 1
+            return (
+              <div
+                key={study.id}
+                id={`case-study-${study.id}`}
+                className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center"
+              >
                 
-                {/* Left Column: Context, Challenge, Architecture */}
-                <div className="lg:col-span-7">
-                  <div className="flex flex-wrap items-center gap-3 mb-4">
-                    <span className="font-mono text-xs font-semibold px-3 py-1 rounded-full bg-white/[0.06] text-white border border-white/15">
-                      {study.tag}
+                {/* Visual Canvas (55% on lg screens = 7 cols) - Standardized Aspect Ratio & Symmetrical Padding */}
+                <div
+                  className={`lg:col-span-7 ${
+                    isEven ? 'lg:order-2' : 'lg:order-1'
+                  }`}
+                >
+                  <div
+                    className={`relative rounded-3xl ${study.canvasBg} border ${study.borderColor} p-6 sm:p-10 lg:p-12 min-h-[420px] sm:min-h-[480px] flex items-center justify-center overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.03)] group transition-all duration-300 hover:shadow-lg`}
+                  >
+                    {/* Symmetrical Top Metadata Pill */}
+                    <div className="absolute top-5 left-5">
+                      <span className="font-mono text-[11px] px-3 py-1 rounded-full bg-white/95 text-neutral-800 border border-neutral-200/90 shadow-2xs backdrop-blur-xs font-semibold">
+                        {study.badge}
+                      </span>
+                    </div>
+
+                    {/* Standardized Phone Canvas Frame */}
+                    <div className="w-[240px] sm:w-[270px] rounded-[38px] p-2.5 bg-neutral-900 border-2 border-neutral-800 shadow-[0_20px_50px_rgba(0,0,0,0.18)] transition-transform duration-300 group-hover:scale-[1.02] flex flex-col justify-between">
+                      {/* Notch / Dynamic Island */}
+                      <div className="w-20 h-3.5 bg-neutral-950 rounded-full mx-auto mb-2 flex items-center justify-center">
+                        <span className="w-1.5 h-1.5 rounded-full bg-neutral-800" />
+                      </div>
+                      
+                      {/* High-Res Screen with Standardized Aspect Ratio */}
+                      <div className="rounded-[28px] overflow-hidden bg-neutral-950 aspect-[9/18] w-full flex items-center justify-center">
+                        <img
+                          src={study.image}
+                          alt={study.title}
+                          className="w-full h-full object-cover object-top"
+                          loading="lazy"
+                        />
+                      </div>
+                      
+                      {/* Home Indicator */}
+                      <div className="w-24 h-1 bg-neutral-700 rounded-full mx-auto mt-2.5" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Surgical Punchy Showcase Copy (45% on lg screens = 5 cols) */}
+                <div
+                  className={`lg:col-span-5 ${
+                    isEven ? 'lg:order-1' : 'lg:order-2'
+                  }`}
+                >
+                  {/* Eyebrow */}
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="font-mono text-xs uppercase tracking-wider font-semibold text-[#0052FF]">
+                      {study.eyebrow}
                     </span>
-                    <span className="text-xs font-mono text-slate-400">Client: {study.client}</span>
                   </div>
 
-                  <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-4">
+                  {/* Project Title */}
+                  <h3 className="text-2xl sm:text-3xl font-bold text-[#0A0A0A] tracking-tight leading-snug">
                     {study.title}
                   </h3>
 
-                  <p className="text-base text-slate-200 leading-relaxed mb-6 font-normal">
-                    {study.description}
+                  {/* One-Sentence Hook (Max 2 lines) */}
+                  <p className="mt-3 text-sm sm:text-base text-[#525252] leading-relaxed">
+                    {study.hook}
                   </p>
 
-                  <div className="space-y-3 text-slate-300 text-sm sm:text-base leading-relaxed">
-                    <div>
-                      <strong className="text-white font-semibold">The Challenge: </strong>
-                      <span>{study.challenge}</span>
-                    </div>
-                    <div>
-                      <strong className="text-white font-semibold">The Architecture: </strong>
-                      <span>{study.architecture}</span>
-                    </div>
-                    <div>
-                      <strong className="text-white font-semibold">The Outcome: </strong>
-                      <span>{study.outcome}</span>
-                    </div>
+                  {/* 2-3 Big Metrics Stat Strip */}
+                  <div className="grid grid-cols-3 gap-3 my-6 py-4 border-y border-neutral-200/80">
+                    {study.metrics.map((m, idx) => (
+                      <div key={idx}>
+                        <span className="font-mono text-lg sm:text-xl font-bold text-[#0A0A0A] block">
+                          {m.value}
+                        </span>
+                        <span className="font-mono text-[11px] uppercase tracking-wider text-neutral-500 block mt-0.5">
+                          {m.label}
+                        </span>
+                      </div>
+                    ))}
                   </div>
 
-                  {/* Tech Stack Tags */}
-                  <div className="mt-6 pt-6 border-t border-white/10 flex flex-wrap items-center gap-2">
-                    <span className="text-xs font-mono text-slate-400 mr-2">Stack:</span>
-                    {study.stack.map(tech => (
+                  {/* Tech Stack Pills */}
+                  <div className="flex flex-wrap items-center gap-1.5 mb-6">
+                    {study.stack.map((tech) => (
                       <span
                         key={tech}
-                        className="font-mono text-xs px-2.5 py-1 rounded-md bg-white/[0.05] text-slate-200 border border-white/10"
+                        className="font-mono text-xs px-2.5 py-0.5 rounded bg-neutral-100 text-neutral-700 border border-neutral-200/60"
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
-                </div>
 
-                {/* Right Column: Verified Outcome Metrics */}
-                <div className="lg:col-span-5 bg-[#080C14] p-6 sm:p-8 rounded-xl border border-white/10 space-y-6">
-                  <span className="text-xs font-mono uppercase tracking-wider text-slate-400 block pb-2 border-b border-white/10">
-                    Verified Outcomes
-                  </span>
-
-                  <div className="space-y-5">
-                    {study.metrics.map(metric => (
-                      <div key={metric.label}>
-                        <p className="font-mono text-2xl sm:text-3xl font-extrabold text-white">
-                          {metric.value}
-                        </p>
-                        <p className="text-xs sm:text-sm text-slate-300 font-medium mt-0.5">
-                          {metric.label}
-                        </p>
-                      </div>
-                    ))}
+                  {/* High-Intent Action Button: Deep Architecture Case Study */}
+                  <div>
+                    <button
+                      onClick={() => setSelectedStudy(study.id)}
+                      className="group inline-flex items-center gap-2 text-sm font-semibold text-[#0A0A0A] hover:text-[#0052FF] transition-all cursor-pointer py-1 active:scale-[0.98]"
+                    >
+                      <span>Read Case Study</span>
+                      <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
+                    </button>
                   </div>
 
-                  {study.link !== '#' && (
-                    <div className="pt-4 border-t border-white/10">
-                      <a
-                        href={study.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-sm font-semibold text-white hover:text-brand-accent-light transition-colors"
-                      >
-                        <span>Visit Live Platform</span>
-                        <ArrowUpRight size={15} />
-                      </a>
-                    </div>
-                  )}
                 </div>
 
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
+
+        {/* Mid-Page Conversion Strip */}
+        <div className="mt-16 p-7 sm:p-10 rounded-2xl bg-[#09090B] text-white flex flex-col md:flex-row md:items-center justify-between gap-6 border border-white/[0.08]">
+          <div>
+            <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-white">
+              Have a project in mind?
+            </h3>
+            <p className="text-sm text-zinc-400 mt-1.5 max-w-lg leading-relaxed">
+              Book a quick 15-minute call to talk through your product, or browse our build playbook.
+            </p>
+          </div>
+          <div className="flex flex-wrap items-center gap-5 shrink-0">
+            <button
+              onClick={() => handleScroll('#contact')}
+              className="px-5 py-3 rounded-xl bg-white text-[#0A0A0A] font-semibold text-sm hover:bg-neutral-100 transition-colors flex items-center gap-2 cursor-pointer active:scale-[0.98]"
+            >
+              <span>Book a 15-Min Call</span>
+              <ArrowRight size={15} />
+            </button>
+            <button
+              onClick={() => setShowPlaybook(true)}
+              className="text-sm font-medium text-zinc-400 hover:text-white transition-colors flex items-center gap-2 cursor-pointer"
+            >
+              <FileText size={14} />
+              <span>View Playbook</span>
+            </button>
+          </div>
+        </div>
+
       </div>
+
+      {/* Interactive Case Study Deep-Dive Modal */}
+      {selectedStudy && (
+        <CaseStudyModal
+          studyId={selectedStudy}
+          onClose={() => setSelectedStudy(null)}
+        />
+      )}
+
+      {/* Low-Friction Architecture Playbook Lead Magnet Modal */}
+      {showPlaybook && (
+        <ArchitecturePlaybookModal
+          onClose={() => setShowPlaybook(false)}
+          onBookCall={() => handleScroll('#contact')}
+        />
+      )}
     </section>
   )
 }

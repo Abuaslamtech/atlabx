@@ -1,129 +1,72 @@
 import React from 'react'
-import { Layout, Smartphone, Server, Sparkles } from 'lucide-react'
 
 const capabilities = [
   {
-    icon: Layout,
-    tag: 'Web Platforms',
-    title: 'Custom Web Applications & SaaS',
+    number: '01',
+    title: 'Fintech & Payment Products',
     description:
-      'End-to-end web applications, client portals, and multi-tenant software built with accessible design systems, type-safe APIs, and responsive frontends.',
-    stack: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
-    deliverables: [
-      'Multi-tenant SaaS architectures',
-      'Complex administrative dashboards & portals',
-      'API-first frontend applications',
-    ],
+      'Digital wallets, payment flows, and financial tools built for speed, security, and reliable transaction handling.',
   },
   {
-    icon: Smartphone,
-    tag: 'Mobile Engineering',
-    title: 'Mobile Applications (iOS & Android)',
+    number: '02',
+    title: 'Mobile Apps (iOS & Android)',
     description:
-      'Native and cross-platform mobile apps engineered for fluid 60fps gestures, offline-first data synchronization, biometric authentication, and rapid cold starts.',
-    stack: ['React Native', 'Expo', 'SQLite', 'NativeWind'],
-    deliverables: [
-      'iOS & Android cross-platform codebases',
-      'Offline-first local caching & persistence',
-      'Secure biometrics & device integrations',
-    ],
+      'Cross-platform mobile apps that feel fast and responsive, work reliably offline, and ship cleanly to both app stores.',
   },
   {
-    icon: Server,
-    tag: 'Cloud & APIs',
-    title: 'Cloud Architecture & Scalable APIs',
+    number: '03',
+    title: 'Web Platforms & SaaS',
     description:
-      'Resilient backend services, microservices, and database modeling engineered for high concurrency, fault isolation, and enterprise security standards.',
-    stack: ['Node.js', 'Go', 'PostgreSQL', 'Redis', 'Docker'],
-    deliverables: [
-      'High-throughput REST & gRPC API gateways',
-      'Relational schema modeling & query optimization',
-      'Automated containerized CI/CD pipelines',
-    ],
+      'Customer-facing web apps, internal dashboards, and backend APIs designed to grow smoothly as your user base scales.',
   },
   {
-    icon: Sparkles,
-    tag: 'Intelligent Systems',
+    number: '04',
     title: 'AI & Workflow Automation',
     description:
-      'Custom workflow automation, intelligent document processing, and background pipelines designed to eliminate manual bottlenecks with deterministic reliability.',
-    stack: ['Python', 'OpenAI / Gemini APIs', 'Queue Workers', 'Webhooks'],
-    deliverables: [
-      'Automated document extraction & processing',
-      'Background batch job orchestration',
-      'Custom LLM-assisted workflow engines',
-    ],
+      'Practical AI features, document processing, and automated background workflows that replace slow manual work.',
   },
 ]
 
 export const Services = () => {
   return (
-    <section id="services" className="py-24 md:py-32 bg-[#080C14] border-t border-white/[0.08]">
+    <section id="capabilities" className="py-20 md:py-28 bg-[#FAFAFA] border-t border-neutral-200">
       <div className="container-xl">
-        {/* Header */}
-        <div className="max-w-3xl mb-16">
-          <span className="font-mono text-xs font-semibold tracking-widest uppercase text-brand-accent-light block mb-4">
-            [ 02 / Capabilities & Disciplines ]
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight">
-            The disciplines we engineer.
-          </h2>
-          <p className="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
-            Direct access to senior engineers across web, mobile, cloud infrastructure, and intelligent automation. Zero junior staffing.
+
+        {/* Horizontal header — same two-column pattern as rest of site */}
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
+          <div>
+            <span className="font-mono text-xs font-semibold tracking-widest uppercase text-neutral-500 block mb-3">
+              02 / Capabilities
+            </span>
+            <h2 className="text-3xl sm:text-5xl font-bold text-[#0A0A0A] tracking-[-0.03em] leading-tight">
+              What we build.
+            </h2>
+          </div>
+          <p className="text-sm sm:text-base text-[#525252] leading-relaxed max-w-sm sm:text-right">
+            Scope shaped around what your business needs, not a fixed menu.
           </p>
         </div>
 
-        {/* 2x2 Grid with high contrast and tech tags */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {capabilities.map((item) => {
-            const Icon = item.icon
-            return (
-              <div
-                key={item.title}
-                className="rounded-2xl bg-[#0D1526] border border-white/10 p-8 sm:p-10 hover:border-white/20 transition-all duration-200 flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="w-11 h-11 rounded-xl bg-white/[0.05] border border-white/10 flex items-center justify-center text-white">
-                      <Icon size={20} />
-                    </div>
-                    <span className="font-mono text-xs text-slate-300 uppercase tracking-wider px-2.5 py-1 rounded bg-white/[0.04] border border-white/10">
-                      {item.tag}
-                    </span>
-                  </div>
-
-                  <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight mb-3">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm sm:text-base text-slate-300 leading-relaxed mb-6 font-normal">
-                    {item.description}
-                  </p>
-
-                  {/* Tech Stack Pills */}
-                  <div className="flex flex-wrap items-center gap-1.5 mb-6">
-                    {item.stack.map((tech) => (
-                      <span
-                        key={tech}
-                        className="font-mono text-[11px] px-2.5 py-0.5 rounded bg-brand-navy-dark/80 text-brand-accent-light border border-brand-accent/20"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="pt-6 border-t border-white/10 space-y-2.5">
-                  {item.deliverables.map((bullet) => (
-                    <div key={bullet} className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-300">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0" />
-                      <span>{bullet}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )
-          })}
+        {/* Hairline-divided list — consistent with site's editorial voice */}
+        <div className="divide-y divide-neutral-200 border-t border-neutral-200">
+          {capabilities.map((item) => (
+            <div
+              key={item.number}
+              className="py-6 grid grid-cols-12 gap-4 sm:gap-8 items-start"
+            >
+              <span className="col-span-1 font-mono text-xs font-semibold text-[#0052FF] pt-1">
+                {item.number}
+              </span>
+              <h3 className="col-span-11 sm:col-span-4 text-lg sm:text-xl font-bold text-[#0A0A0A] tracking-tight">
+                {item.title}
+              </h3>
+              <p className="col-start-2 col-span-11 sm:col-start-6 sm:col-span-7 text-sm sm:text-base text-[#525252] leading-relaxed">
+                {item.description}
+              </p>
+            </div>
+          ))}
         </div>
+
       </div>
     </section>
   )

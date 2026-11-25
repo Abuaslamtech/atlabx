@@ -15,9 +15,9 @@ html {
 
 body {
   margin: 0;
-  font-family: 'Inter', system-ui, sans-serif;
-  background-color: #080C14;
-  color: #E2E8F0;
+  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+  background-color: #FAFAFA;
+  color: #0A0A0A;
   font-size: 16px;
   line-height: 1.6;
   overflow-x: hidden;
@@ -28,26 +28,26 @@ body {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #F7F8FB;
+  background: #FAFAFA;
 }
 ::-webkit-scrollbar-thumb {
-  background: #B0BCD6;
+  background: #D4D4D8;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #1F4285;
+  background: #A1A1AA;
 }
 
 /* ── Selection colour ───────────────────────────────────── */
 ::selection {
-  background-color: #1F4285;
-  color: #ffffff;
+  background-color: #0A0A0A;
+  color: #FFFFFF;
 }
 
 /* ── Focus ring ─────────────────────────────────────────── */
 :focus-visible {
-  outline: 2px solid #1F4285;
-  outline-offset: 3px;
+  outline: 2px solid #0052FF;
+  outline-offset: 2px;
 }
 
 /* ── Utility: section padding ───────────────────────────── */

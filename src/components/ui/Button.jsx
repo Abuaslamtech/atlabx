@@ -2,13 +2,19 @@ import React from 'react'
 
 const variants = {
   primary:
-    'bg-brand-electric text-white hover:bg-brand-electric-hover border border-blue-400/30 shadow-sm active:scale-[0.98]',
+    'bg-[#0A0A0A] text-white hover:bg-neutral-800 border border-[#0A0A0A] shadow-sm active:scale-[0.98]',
+  cobalt:
+    'bg-[#0052FF] text-white hover:bg-[#0047E0] border border-transparent shadow-sm active:scale-[0.98]',
+  white:
+    'bg-white text-[#0A0A0A] hover:bg-neutral-100 border border-neutral-200 font-semibold shadow-sm active:scale-[0.98]',
   secondary:
-    'bg-white/[0.05] text-white hover:bg-white/[0.1] border border-white/15 hover:border-white/30 active:scale-[0.98]',
+    'bg-neutral-100 text-[#0A0A0A] hover:bg-neutral-200 border border-neutral-200 active:scale-[0.98]',
   outline:
-    'bg-transparent text-white hover:bg-white/[0.06] border border-white/20 hover:border-white/40 active:scale-[0.98]',
+    'bg-transparent text-[#0A0A0A] hover:bg-[#0A0A0A] hover:text-white border-[1.5px] border-[#0A0A0A] font-semibold active:scale-[0.98]',
+  darkOutline:
+    'bg-transparent text-white hover:bg-white/10 border border-white/25 active:scale-[0.98]',
   ghost:
-    'bg-transparent text-slate-300 hover:text-white active:scale-[0.98]',
+    'bg-transparent text-neutral-600 hover:text-[#0A0A0A] hover:bg-neutral-100/80 active:scale-[0.98]',
 }
 
 const sizes = {
@@ -29,7 +35,7 @@ const Button = ({
   ...props
 }) => {
   const base =
-    'inline-flex items-center justify-center gap-2 rounded-xl transition-all duration-150 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-electric focus-visible:ring-offset-2 focus-visible:ring-offset-[#080C14] disabled:opacity-50 disabled:cursor-not-allowed select-none'
+    'inline-flex items-center justify-center gap-2 rounded-xl transition-all duration-150 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0052FF] focus-visible:ring-offset-2 focus-visible:ring-offset-white disabled:opacity-50 disabled:cursor-not-allowed select-none'
 
   const classes = `${base} ${variants[variant] || variants.primary} ${sizes[size] || sizes.md} ${className}`
 

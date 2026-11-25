@@ -1,13 +1,13 @@
 export const products = [
   {
-    id: 'eivia',
-    name: 'Eivia',
-    tagline: 'Digital Services & Utility Platform',
+    id: 'deftaro',
+    name: 'Deftaro',
+    tagline: 'Retail Operations, Inventory & Offline POS Engine',
     description:
-      'A high-availability digital services gateway engineered by AtlabX. Features sub-second request fulfillment, automated switch failover, and multi-tier account management serving thousands of daily consumer transactions.',
-    tags: ['Consumer Platform', 'High Uptime', 'Digital Payments', 'In-House Venture'],
-    accentColor: '#1F4285',
-    status: 'Live Platform',
+      'A proprietary offline-first retail operating system and point-of-sale platform built by AtlabX. Features real-time stock alerts, local SQLite ledger persistence, and sub-second checkout.',
+    tags: ['Retail POS', 'Offline-First', 'Inventory Management', 'In-House Venture'],
+    accentColor: '#2A5BD7',
+    status: 'Private Beta / Almost Live',
     url: '#',
   },
 ]
